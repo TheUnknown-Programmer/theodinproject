@@ -1,18 +1,22 @@
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
+const myLibrary = [];
+
+function Book({ title, author, pages, read }) {
+  return `Title: ${title} ${author}, Pages: ${pages}, Read: ${read}`;
 }
 
-Book.prototype.info = function () {
-  return this.title + this.author + this.pages + this.read;
-};
-const theHobbit = new Book(
-  "The Hobbit ",
-  "by J.R.R. Tolkien, ",
-  "295 pages, ",
-  "Not read yet"
-);
+const theHobbit = Book({
+  title: "The Hobbit",
+  pages: "295 pages",
+  author: "by J.R.R. Tolkien",
+  read: "Not yet",
+});
 
-console.log(theHobbit.info());
+function addBookToLibrary(array, key, value) {
+  const newObject = {};
+  newObject[key] = value;
+  array.push(newObject);
+}
+
+addBookToLibrary(myLibrary, theHobbit);
+
+console.log(myLibrary);
