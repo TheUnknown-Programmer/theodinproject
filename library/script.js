@@ -8,15 +8,21 @@ const theHobbit = Book({
   title: "The Hobbit",
   pages: "295 pages",
   author: "by J.R.R. Tolkien",
-  read: "Not yet",
+  read: "No",
 });
 
-function addBookToLibrary(array, key, value) {
-  const newObject = {};
-  newObject[key] = value;
-  array.push(newObject);
+const readyPlayerOne = Book({
+  title: "Ready Player One ",
+  pages: "500 pages",
+  author: "Ernest Cline",
+  read: "Yes",
+});
+
+function addBookToLibrary(library, book) {
+  library.push(book);
 }
 
 addBookToLibrary(myLibrary, theHobbit);
+addBookToLibrary(myLibrary, readyPlayerOne);
 
 console.log(myLibrary);
