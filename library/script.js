@@ -22,7 +22,26 @@ function addBookToLibrary(library, book) {
   library.push(book);
 }
 
+// function loopThroughArray(array) {
+//   const library = document.getElementById("library");
+
+//   for (let i = 0; i < array.length; i++) {
+//     const newDiv = document.createElement("div");
+//     newDiv.textContent = array[i];
+//     library.appendChild(newDiv);
+//   }
+// }
+
+function loopThroughArray(array) {
+  const library = document.getElementById("library");
+
+  for (const item of array) {
+    const newDiv = document.createElement("div");
+    newDiv.textContent = item;
+    library.appendChild(newDiv);
+  }
+}
+
 addBookToLibrary(myLibrary, theHobbit);
 addBookToLibrary(myLibrary, readyPlayerOne);
-
-console.log(myLibrary);
+loopThroughArray(myLibrary);
