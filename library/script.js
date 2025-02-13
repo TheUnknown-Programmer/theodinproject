@@ -7,14 +7,14 @@ function Book({ title, author, pages, read }) {
 const theHobbit = Book({
   title: "The Hobbit",
   pages: "295 pages",
-  author: "by J.R.R. Tolkien",
+  author: "by: J.R.R. Tolkien",
   read: "No",
 });
 
 const readyPlayerOne = Book({
   title: "Ready Player One ",
   pages: "500 pages",
-  author: "Ernest Cline",
+  author: "by: Ernest Cline",
   read: "Yes",
 });
 
@@ -45,3 +45,40 @@ function loopThroughArray(array) {
 addBookToLibrary(myLibrary, theHobbit);
 addBookToLibrary(myLibrary, readyPlayerOne);
 loopThroughArray(myLibrary);
+
+const openNewBookFormButton = document.getElementById("openNewBookFormButton");
+
+openNewBookFormButton.addEventListener("click", () => {
+  myForm.style.display = "block";
+});
+
+function addItem() {
+  const form = document.getElementById("myForm");
+  const library = document.getElementById("library");
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const itemName = document.getElementById("itemName").value;
+    const authorName = document.getElementById("authorName").value;
+    const pages = document.getElementById("pages").value;
+    const read = document.getElementById("read").value;
+
+    const newItem = document.createElement("div");
+    newItem.textContent =
+      "Title: " +
+      itemName +
+      " By: " +
+      authorName +
+      ", Pages: " +
+      pages +
+      ", Read: " +
+      read;
+
+    library.appendChild(newItem);
+
+    form.reset();
+  });
+}
+
+addItem();
